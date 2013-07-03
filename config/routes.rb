@@ -1,4 +1,5 @@
 MusicCatalog::Application.routes.draw do
+  devise_for :users
   resources :tracks
 
   root 'tracks#index'
