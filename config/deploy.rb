@@ -4,7 +4,7 @@ server "192.81.222.115", :web, :app, :db, primary: true
 
 set :application, "music-catalog"
 set :user, "ezfoxie"
-set :deploy_to, "/var/webdata/ruby"
+set :deploy_to, "/var/webdata/ruby/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
