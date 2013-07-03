@@ -5,7 +5,7 @@ class TracksController < ApplicationController
   # GET /tracks
   # GET /tracks.json
   def index
-    @tracks = Track.all
+    @tracks = current_user.tracks
   end
 
   # GET /tracks/1
@@ -26,6 +26,7 @@ class TracksController < ApplicationController
   # POST /tracks.json
   def create
     @track = Track.new(track_params)
+    @track.user = current_user
 
     respond_to do |format|
       if @track.save
@@ -65,7 +66,7 @@ class TracksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_track
-      @track = Track.find(params[:id])
+      @track = current_user.tracks.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
