@@ -5,4 +5,5 @@ class Track < ActiveRecord::Base
 	def display_name
 		"#{artist} - #{title}"
 	end
+
 end
